@@ -145,7 +145,7 @@ def buscar_ventas():
         if venta["idVenta"] == id_buscar:
             print(f"ID venta: {venta['idVenta']}, Cliente: {venta['nombreCliente']}, Mesa: {venta['numeroMesa']}, Plato: {venta['platoPrincipal']}, Valor: {venta['valorConsumo']}, Metodo de Pago: {venta['metodoPago']}, Estado del Pedido: {venta['estadoPedido']}")
             return
-        print("Venta no encontrada.")
+    print("Venta no encontrada.")
 
 #Eliminar una venta
 def eliminar_venta():
@@ -182,6 +182,34 @@ def agregar_venta():
 
 
 # Menu de ventas
+def menu_ventas():
+    while True:
+        print("\n--- Menú de Ventas ---")
+        print("1. Mostrar ventas")
+        print("2. Ordenar ventas por valor")
+        print("3. Buscar venta")
+        print("4. Eliminar venta")
+        print("5. Agregar nueva venta")
+        print("6. Salir del menú de ventas")
 
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            mostrar_ventas()
+        elif opcion == "2":
+            ordenar_ventas()
+        elif opcion == "3":
+            buscar_ventas()
+        elif opcion == "4":
+            eliminar_venta()
+        elif opcion == "5":
+            agregar_venta()
+        elif opcion == "6":
+            break
+        else:
+            print("Opción no válida. Por favor, seleccione una opción del menú.")
 
 # Flujo principal del programa
+registro_usuario()
+if iniciar_sesion():
+    menu_ventas()
